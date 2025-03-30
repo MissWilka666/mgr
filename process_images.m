@@ -15,7 +15,14 @@ function [img_result,img_noise]=process_images(img_org,M,n)
     for ii=1:n
         img_noise{ii}=randn(size(img_org))*valM; %szum na podstawie odchyleń standardowych
         img_result{ii}=img_org+img_noise{ii}; %dodawanie szumu do obrazu
-        img_result{ii}=round(img_result{ii}*M)/M;     %usuwanie szumu kwantyfikacji   
- 
+        img_min=min(img_result{ii}(:));
+        img_max=max(img_result{ii}(:));
+        img_result{ii}=(img_result{ii}-img_min)/(img_max-img_min);
+        if M>1
+            img_result{ii}=round(img_result{ii}*(M-1))/(M-1);
+        else
+            img_result{ii}=round(img_result{ii}*(M))/(M);
+        end
+        
     end
 end
