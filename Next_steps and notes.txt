@@ -1,0 +1,47 @@
+Funkcja GenerateDataset.m generuje zbiór uczący z podziałem na część amplitudową i fazową.
+holos <- hologramy zasymulowane bez szumu (na ten moment kwiatki, jeśli dobrze rozumiem sieć)
+M <- liczba odcieni szarości (do zadeklarowania przez użytkownika)
+
+lambda=0.405
+dx=2.4
+img_size=512x512
+
+
+Do wykonania:
+1. Jedna sieć dla kilku różnych M (np. M=5 i M=20)
+2. Oddzielna sieć dla pojedynczej wartości M (osobno dla M=5 i M=20)
+3. Dla sieci z oddzielnymi M dodać do zapisywania informacja jakie M (np. w postaci M20)
+4. Wytrenowac sieci i przeprowadzic analize jak działaja dla obrazków z M=20 i M=5 (dedykowana dla M=5, dedykowana dla M=20 i ogólna dla M=20 i M=5)
+5. Upewnić się ze Z, lambda i dx są odpowiednie. Wartości Z na dole.
+6. Przetestować na danych eksperymentalnych
+7. Zmienić zmienną holo (jest to optaz z paddingiem, żeby uniknąć aliasingu).
+8. Usunąć wycinanie obrazka z obraza z paddingiem, zaszumić a następnie dopiero wyciąć
+9. Efekt - zaszumione obrazki
+10. Sprawdzić w zależności dla m1=1 i m1=-1
+
+Wartości Z:
+Bio:
+HPB: 6120
+LPB15: 6170
+LPB5: 6160
+ 
+USAFamp
+HPB: 2680
+LPB15: 2680
+LPB5: 2680
+ 
+USAFphs
+HPB: 4720
+LPB5: 4740
+LPB10: 4740
+
+
+Informacje dodatkowe:
+1. Jeżeli wykres błędu nie maleje, coś jest źle - przerwać uczenie i się zastanowić co.
+2. GT=ground truth
+3. Y_out -> dla sieci amplitudowej i fazowe
+4. Y_amp-> dla sieci amplitudowej
+5. Y_ph -> dla sieci fazowej
+6. U_out -> bez sieci
+7. WYNIK Z SIECIĄ POWINIEN BYĆ LEPSZY NIŻ BEZ NO BO PLZ
+8. Żeby opuścić jedną z sieci i skrócić czas uczenia trzeba wstawić pusty zbiór zamiast sieci uczącej. Zmniejszyć ilość epok do 10. Później po pierwszych wynikach można zapuścić już więcej (np. wrócić do 30)
