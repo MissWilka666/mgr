@@ -1,4 +1,4 @@
-function [img_result,img_noise]=process_images(img_org,M)
+function img_result=process_images(img_org,M)
 if isfile('tableM.mat')
     load('tableM.mat','tableM');
 else

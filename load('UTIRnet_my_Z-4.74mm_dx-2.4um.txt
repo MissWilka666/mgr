@@ -1,0 +1,27 @@
+>> load('UTIRnet_my_Z-4.74mm_dx-2.4um_lambda-405nm_M-5.mat')
+File: main_example.m Line: 163 Column: 15
+Invalid expression. Check for missing multiplication operator, missing or unbalanced
+delimiters, or other syntax error. To construct matrices, use brackets instead of
+parentheses.
+
+K>> figure; imagesc(inTrPhs(:,:,1,1))
+Unrecognized function or variable 'inTrPhs'.
+ 
+K>> figure; imagesc(inTarPhs(:,:,1,1))
+Unrecognized function or variable 'inTarPhs'.
+ 
+K>> figure; imagesc(inValPhs(:,:,1,1))
+K>> figure; imagesc(tarValPhs(:,:,1,1))
+K>> 
+K>> 
+K>> 
+K>> 
+K>> figure; imagesc(angle(U_out))
+K>> figure; imagesc(angle(U_out)+pi,[0,2*pi])
+K>> figure; imagesc(Y_phs,[0,2*pi])
+K>> figure; imagesc(Y_phs,[0,2*pi])
+Unrecognized function or variable 'Y_phs'.
+ 
+K>> figure; imagesc(Yphs,[0,2*pi])
+K>> figure; imagesc(Yphs)
+>> 

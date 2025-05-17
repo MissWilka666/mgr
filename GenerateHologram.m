@@ -78,8 +78,9 @@ end
 % propagate object to camera plane
 u_in = AS_propagate_p(u0,-Z,RI,lambda,dx);
 holo = abs(u_in).^2;
+if length(M)>0
 holo = process_images(holo,M(mod(tt,length(M))+1)); %%%% Tutaj nie bylo holo = ...
-
+end
 
     
 
